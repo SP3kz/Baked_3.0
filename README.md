@@ -17,8 +17,8 @@ This repository contains **Baked 3.0**—a streamlined, AI-powered platform that
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/baked-3-0.git
-cd baked-3-0
+git clone https://github.com/yourusername/baked-3.0.git
+cd baked-3.0
 ```
 
 ### 2. Install Dependencies
@@ -34,13 +34,13 @@ pip install -r requirements.txt
 Build the Docker container:
 
 ```bash
-docker build -t baked-3-0 .
+docker build -t baked-3.0 .
 ```
 
 Run the Docker container:
 
 ```bash
-docker run -d -p 8080:8080 baked-3-0
+docker run -d -p 8080:8080 baked-3.0
 ```
 
 ### 4. Kubernetes Deployment
