@@ -1,0 +1,27 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and Deploy
+        run: |
+          docker build -t baked-3.0 .
+          docker run -d baked-3.0
+          docker push my-docker-registry/baked-3.0
+
+      - name: Deploy to Cloud (e.g., AWS)
+        run: |
+          aws ecs update-service --cluster my-cluster --service my-service --force-new-deployment
